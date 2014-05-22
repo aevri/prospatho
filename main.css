@@ -1,0 +1,30 @@
+.question {
+    color: white;
+    background-color: black;
+    height: 14vh;
+    padding: 2vh;
+}
+.answer {
+    background-color: #AAA;
+    height: 13vh;
+    padding: 2vh;
+}
+.score {
+    color: white;
+    background-color: black;
+    height: 5vh;
+    padding: 1vh;
+}
+
+.answer:nth-of-type(2) {
+    background-color: #FA0;
+}
+.answer:nth-of-type(3) {
+    background-color: #0AF;
+}
+.answer:nth-of-type(4) {
+    background-color: #F0A;
+}
+.answer:nth-of-type(5) {
+    background-color: #AF0;
+}
