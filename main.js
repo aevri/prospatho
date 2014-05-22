@@ -6,8 +6,7 @@ function main() {
     var game = document.getElementById("game");
 
     var problems = [
-        ["hello", "yes", "no", "maybe", "definitely"],
-        ["woop", "bloop", "moop", "shoop", "meoop"]
+        ["I try", "προσπαθώ", "προσπαθό", "πρωσπαθό", "πρωσπαθώ"],
     ];
 
     var question = document.createElement("div");
