@@ -15,7 +15,7 @@ function main() {
 
     var score = document.createElement("div");
     score.setAttribute("class", "score");
-    score.innerHTML = "None";
+    score.innerHTML = "No score";
 
     var answers = [];
     var num_answers = 4;
