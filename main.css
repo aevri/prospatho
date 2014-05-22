@@ -1,0 +1,24 @@
+.question {
+    color: white;
+    background-color: black;
+    height: 15vh;
+    padding: 2vh;
+}
+.answer {
+    background-color: #AAA;
+    height: 15vh;
+    padding: 2vh;
+}
+
+.answer:nth-of-type(2) {
+    background-color: #FA0;
+}
+.answer:nth-of-type(3) {
+    background-color: #0AF;
+}
+.answer:nth-of-type(4) {
+    background-color: #F0A;
+}
+.answer:nth-of-type(5) {
+    background-color: #AF0;
+}
