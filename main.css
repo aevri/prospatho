@@ -3,17 +3,23 @@
     background-color: black;
     height: 14vh;
     padding: 2vh;
+    font-size: 12vh;
+    font-family: "sans-serif";
 }
 .answer {
     background-color: #AAA;
     height: 13vh;
     padding: 2vh;
+    font-size: 12vh;
+    font-family: "sans-serif";
 }
 .score {
     color: white;
     background-color: black;
     height: 5vh;
     padding: 1vh;
+    font-size: 5vh;
+    font-family: "sans-serif";
 }
 
 .answer:nth-of-type(2) {
