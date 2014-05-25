@@ -2,6 +2,37 @@ window.onload = function() {
     main()
 };
 
+function lerp_int(from, to, t) {
+    return Math.round(from + t * (to - from));
+}
+
+function lerp_int_triple(from, to, t) {
+    return [
+        lerp_int(from[0], to[0], t),
+        lerp_int(from[1], to[1], t),
+        lerp_int(from[2], to[2], t),
+    ];
+}
+
+function rgb_string(values) {
+    return "rgb(" + values[0] + ", " + values[1] + ", " + values[2] + ")";
+}
+
+function animate_bgcolor(elem, from, to, duration) {
+    var start = new Date().getTime();
+    timer = setInterval(function() {
+        var now = new Date().getTime();
+        var elapsed = now - start;
+        var t = Math.min(1, elapsed / duration);
+        var rgb = lerp_int_triple(from, to, t);
+        elem.style.backgroundColor = rgb_string(rgb);
+        if (t == 1) {
+            clearInterval(timer);
+        }
+    }, 25);
+    elem.style.backgroundColor = rgb_string(from);
+}
+
 function main() {
     var game = document.getElementById("game");
 
@@ -51,6 +82,9 @@ function main() {
             // update score
             if (i == game_state["correct_answer"]) {
                 score_number += 1;
+
+                // sucess animation
+                animate_bgcolor(score, [255, 255, 255], [0, 0, 0], 1000);
             }
             score.innerHTML = "score: " + score_number.toString();
 
