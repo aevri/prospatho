@@ -2,23 +2,6 @@ window.onload = function() {
     main()
 };
 
-function make_translate_problems() {
-    var translations = TRANSLATIONS;
-    var problems = [];
-    for (var i = 0; i < translations.length; ++i) {
-        var choices = choose_n_excluding(translations, 3, i);
-        var problem = [
-            translations[i][0],
-            translations[i][1],
-            choices[0][1],
-            choices[1][1],
-            choices[2][1],
-        ];
-        problems.push(problem);
-    }
-    return problems;
-}
-
 function main() {
     var game = document.getElementById("game");
 
@@ -85,6 +68,23 @@ function main() {
     game.appendChild(score);
 
     do_next_problem();
+}
+
+function make_translate_problems() {
+    var translations = TRANSLATIONS;
+    var problems = [];
+    for (var i = 0; i < translations.length; ++i) {
+        var choices = choose_n_excluding(translations, 3, i);
+        var problem = [
+            translations[i][0],
+            translations[i][1],
+            choices[0][1],
+            choices[1][1],
+            choices[2][1],
+        ];
+        problems.push(problem);
+    }
+    return problems;
 }
 
 function display_problem(question, answers, problem, game_state) {
