@@ -33,21 +33,63 @@ function animate_bgcolor(elem, from, to, duration) {
     elem.style.backgroundColor = rgb_string(from);
 }
 
+function make_range(maximum) {
+    range = []
+    for (var i = 0; i < maximum; ++i) {
+        range.push(i);
+    }
+    return range;
+}
+
+function choose_n_excluding(choices, n, index) {
+    var indices = make_range(choices.length);
+    indices.splice(index, 1);
+    var chosen = []
+    for (var i = 0; i < n; ++i) {
+        var index_index = random_int(indices.length);
+        var chosen_index = indices[index_index];
+        chosen.push(choices[chosen_index]);
+        indices.splice(index_index, 1);
+    }
+    return chosen;
+}
+
+function make_translate_problems() {
+    var translations = [
+        ["I try", "προσπαθώ"],
+        ["I bring", "φέρνω"],
+        ["I go", "φεύγω"],
+        ["I send", "στέλνω"],
+        ["I wash", "πλένω"],
+        ["I fall", "πέφτω"],
+        ["I die", "πεθαίνω"],
+        ["I take", "παίρνω"],
+        ["I give", "δίνω"],
+        ["I live", "ζω"],
+    ];
+    var problems = [];
+    for (var i = 0; i < translations.length; ++i) {
+        var choices = choose_n_excluding(translations, 3, i);
+        var problem = [
+            translations[i][0],
+            translations[i][1],
+            choices[0][1],
+            choices[1][1],
+            choices[2][1],
+        ];
+        problems.push(problem);
+    }
+    return problems;
+}
+
 function main() {
     var game = document.getElementById("game");
 
     var problems = [
         ["I try", "προσπαθώ", "προσπαδώ", "πρόσπαθω", "πρόσπαδω"],
-        ["I bring", "φέρνω", "φερνώ", "φαίρνω", "φαιρνώ"],
-        ["I go", "φεύγω", "φέυγω", "φευγώ", "φέβγω"],
-        ["I send", "στέλνω", "φέρνω", "προσπαθώ", "φεύγω"],
-        ["I wash", "πλένω", "στέλνω", "φέρνω", "προσπαθώ"],
-        ["I fall", "πέφτω", "πλένω", "στέλνω", "φέρνω"],
-        ["I die", "πεθαίνω", "πέφτω", "πλένω", "στέλνω"],
-        ["I take", "παίρνω", "πεθαίνω", "πέφτω", "πλένω"],
-        ["I give", "δίνω", "παίρνω", "πεθαίνω", "πέφτω"],
-        ["I live", "ζω", "δίνω", "παίρνω", "πεθαίνω"],
     ];
+
+    problems = problems.concat(make_translate_problems());
 
     var question = document.createElement("div");
     question.setAttribute("class", "question");
