@@ -17,8 +17,6 @@ var TRANSLATIONS = [
     ["sixth", "έκτος", ["gender-expand", "masculine", "ordinal"]],
     ["seventh", "έβδομος", ["gender-expand", "masculine", "ordinal"]],
     ["eighth", "όγδοος", ["gender-expand", "masculine", "ordinal"]],
-    ["eighth", "όγδοη", ["gender-expand", "masculine", "ordinal"]],
-    ["eighth", "όγδοο", ["gender-expand", "masculine", "ordinal"]],
     ["ninth", "ένατος", ["gender-expand", "masculine", "ordinal"]],
     ["tenth", "δέκατος", ["gender-expand", "masculine", "ordinal"]],
     ["eleventh", "ενδέκατος", ["gender-expand", "masculine", "ordinal"]],
