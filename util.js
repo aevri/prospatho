@@ -75,3 +75,45 @@ function reordered_array(a, ordering) {
     return new_a;
 }
 
+function extend_array(to_modify, to_append) {
+    Array.prototype.push.apply(to_modify, to_append);
+}
+
+function is_string_in_list(s, list_of_strings) {
+    for (var i = 0; i < list_of_strings.length; ++i) {
+        if (list_of_strings[i] == s) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function remove_string_from_list(s, list_of_strings) {
+    var index = list_of_strings.indexOf(s);
+    if (index > -1) {
+        list_of_strings.splice(index, 1);
+    }
+}
+
+function clone_list(original) {
+    return original.slice(0);
+}
+
+function list_with_appended(original, item) {
+    var appended = clone_list(original);
+    appended.push(item);
+    return appended;
+}
+
+function string_ends_with(s, suffix) {
+    return s.indexOf(suffix, s.length - suffix.length) != -1;
+}
+
+function string_without_suffix(s, suffix) {
+}
+
+function assert(condition, message) {
+    if (!condition) {
+        throw message || "Assertion failed";
+    }
+}

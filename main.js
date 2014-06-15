@@ -70,7 +70,8 @@ function main() {
 }
 
 function make_translate_problems() {
-    var tag_to_group = group_translations_by_tags(TRANSLATIONS);
+    var all_translations = expanded_translations(TRANSLATIONS);
+    var tag_to_group = group_translations_by_tags(all_translations);
     var problems = [];
     for (var tag in tag_to_group) {
         var translations = tag_to_group[tag];
@@ -87,6 +88,60 @@ function make_translate_problems() {
         }
     }
     return problems;
+}
+
+function expanded_translations(translations) {
+    var expanded = []
+    for (var i = 0; i < translations.length; ++i) {
+        var t = translations[i];
+        var tag = t[2];
+        if (is_string_in_list("gender-expand", tag)) {
+            extend_array(expanded, expanded_gender(t));
+        } else {
+            expanded.push(t);
+        }
+    }
+    return expanded;
+}
+
+function expanded_gender(t) {
+    var expanded = [];
+    var english = new String(t[0]);
+    var greek = new String(t[1]);
+    var tags = clone_list(t[2]);
+    assert(is_string_in_list('masculine', tags));
+    remove_string_from_list('gender-expand', tags);
+    remove_string_from_list('masculine', tags);
+
+    var unstressed_suffixes = ['ος', 'η', 'ο'];
+    var stressed_suffixes = ['ός', 'ή', 'ό'];
+    var suffixes = [];
+
+    // assert ends in os, remove os
+    if (string_ends_with(greek, unstressed_suffixes[0])) {
+        suffixes = unstressed_suffixes;
+    } else if (string_ends_with(greek, stressed_suffixes[0])) {
+        suffixes = stressed_suffixes;
+    } else {
+        assert(false, 'unexpeced ending encountered: ' + greek);
+    }
+    greek = greek.slice(0, -2);
+
+    expansions = [
+        ['(m)', suffixes[0], 'masculine'],
+        ['(f)', suffixes[1], 'feminine'],
+        ['(n)', suffixes[2], 'neuter'],
+    ];
+
+    for (var i = 0; i < expansions.length; ++i) {
+        e = expansions[i];
+        expanded.push([
+            english + ' ' + e[0],
+            greek + e[1],
+            list_with_appended(tags, e[2])]);
+    }
+
+    return expanded;
 }
 
 function group_translations_by_tags(translations) {
