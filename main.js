@@ -70,20 +70,36 @@ function main() {
 }
 
 function make_translate_problems() {
-    var translations = TRANSLATIONS;
+    var tag_to_group = group_translations_by_tags(TRANSLATIONS);
     var problems = [];
-    for (var i = 0; i < translations.length; ++i) {
-        var choices = choose_n_excluding(translations, 3, i);
-        var problem = [
-            translations[i][0],
-            translations[i][1],
-            choices[0][1],
-            choices[1][1],
-            choices[2][1],
-        ];
-        problems.push(problem);
+    for (var tag in tag_to_group) {
+        var translations = tag_to_group[tag];
+        for (var i = 0; i < translations.length; ++i) {
+            var choices = choose_n_excluding(translations, 3, i);
+            var problem = [
+                translations[i][0],
+                translations[i][1],
+                choices[0][1],
+                choices[1][1],
+                choices[2][1],
+            ];
+            problems.push(problem);
+        }
     }
     return problems;
+}
+
+function group_translations_by_tags(translations) {
+    var groups = {};
+    for (var i = 0; i < translations.length; ++i) {
+        var t = translations[i];
+        var tag = t[2];
+        if (!(tag in groups)) {
+            groups[tag] = [];
+        }
+        groups[tag].push(t);
+    }
+    return groups;
 }
 
 function display_problem(question, answers, problem, game_state) {
