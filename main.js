@@ -10,6 +10,7 @@ function main() {
     ];
 
     problems = problems.concat(make_translate_problems());
+    shuffle_array(problems);
 
     var question = document.createElement("div");
     question.setAttribute("class", "question");
