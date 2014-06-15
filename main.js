@@ -60,7 +60,6 @@ function main() {
     for (var i = 0; i < num_answers; i++) {
         a = document.createElement("div")
         a.setAttribute("class", "answer");
-        console.log(i);
         a.onclick = make_process_answer_click(i);
         answers.push(a);
         game.appendChild(a);
