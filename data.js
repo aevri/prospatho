@@ -24,7 +24,7 @@ var TRANSLATIONS = [
     ["I say", "λέω", ["verb"]],
     ["I eat", "τρώω", ["verb"]],
     ["I drink", "πίνω", ["verb"]],
-    ["I find", "βρίσλω", ["verb"]],
+    ["I find", "βρίσκω", ["verb"]],
     ["I go out", "βγαίνω", ["verb"]],
     ["I look", "κοιταζω", ["verb"]],
     ["I know", "ξέρω", ["verb"]],
