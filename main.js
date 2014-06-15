@@ -98,10 +98,57 @@ function expanded_translations(translations) {
         var tag = t[2];
         if (is_string_in_list("gender-expand", tag)) {
             extend_array(expanded, expanded_gender(t));
+        } else if (is_string_in_list("verb-expand", tag)) {
+            extend_array(expanded, expanded_verb(t));
         } else {
             expanded.push(t);
         }
     }
+    return expanded;
+}
+
+function expanded_verb(t) {
+    var expanded = [];
+    var english = new String(t[0]);
+    var greek = new String(t[1]);
+    var tags = clone_list(t[2]);
+    assert(is_string_in_list('verb-type-a', tags));
+    remove_string_from_list('verb-expand', tags);
+    remove_string_from_list('singular', tags);
+    remove_string_from_list('first-person', tags);
+
+    var english_prefixes = ['I', 'You', 'He/She/It', 'We', 'You(pl)', 'They'];
+    var greek_suffixes = ['ω', 'εις', 'ει', 'ουμε', 'ετε', 'ουν(ε)'];
+
+    // Assert that the English string begins with 'I', remove 'I'
+    if (!string_begins_with(english, english_prefixes[0])) {
+        assert(false, 'unexpeced verb prefix encountered: ' + english);
+    }
+    english = english.substr(1);
+
+    // Assert that the Greek string ends in omega, remove omega
+    if (!string_ends_with(greek, greek_suffixes[0])) {
+        assert(false, 'unexpeced verb ending encountered: ' + greek);
+    }
+    greek = greek.slice(0, -1);
+
+    expansions = [
+        [english_prefixes[0], greek_suffixes[0], ['singular', 'first-person']],
+        [english_prefixes[1], greek_suffixes[1], ['singular', 'second-person']],
+        [english_prefixes[2], greek_suffixes[2], ['singular', 'third-person']],
+        [english_prefixes[3], greek_suffixes[3], ['plural', 'first-person']],
+        [english_prefixes[4], greek_suffixes[4], ['plural', 'second-person']],
+        [english_prefixes[5], greek_suffixes[5], ['plural', 'third-person']],
+    ];
+
+    for (var i = 0; i < expansions.length; ++i) {
+        e = expansions[i];
+        expanded.push([
+            e[0] + english,
+            greek + e[1],
+            list_with_extended(tags, e[2])]);
+    }
+
     return expanded;
 }
 

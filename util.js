@@ -99,10 +99,20 @@ function clone_list(original) {
     return original.slice(0);
 }
 
+function list_with_extended(original, list) {
+    var extended = clone_list(original);
+    extended = extended.concat(list);
+    return extended;
+}
+
 function list_with_appended(original, item) {
     var appended = clone_list(original);
     appended.push(item);
     return appended;
+}
+
+function string_begins_with(s, prefix) {
+    return s.indexOf(prefix) == 0;
 }
 
 function string_ends_with(s, suffix) {
