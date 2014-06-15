@@ -21,12 +21,5 @@ var TRANSLATIONS = [
     ["tenth", "δέκατος", ["gender-expand", "masculine", "ordinal"]],
     ["eleventh", "ενδέκατος", ["gender-expand", "masculine", "ordinal"]],
     ["twelfth", "δωδέκατος", ["gender-expand", "masculine", "ordinal"]],
-    ["thirteenth", "δέκατος τρίτος", ["gender-expand", "masculine", "ordinal"]],
-    ["fourteenth", "δέκατος τέταρτος", ["gender-expand", "masculine", "ordinal"]],
-    ["fifteenth", "δέκατος πέμπτος", ["gender-expand", "masculine", "ordinal"]],
-    ["sixteenth", "δέκατος έκτος", ["gender-expand", "masculine", "ordinal"]],
-    ["seventeenth", "δέκατοσ έβδομος", ["gender-expand", "masculine", "ordinal"]],
-    ["eighteenth", "δέκατος όγδοος", ["gender-expand", "masculine", "ordinal"]],
-    ["nineteenth", "δέκατος ένατος", ["gender-expand", "masculine", "ordinal"]],
     ["twentieth", "εικοστός", ["gender-expand", "masculine", "ordinal"]],
 ];
