@@ -26,7 +26,7 @@ var TRANSLATIONS = [
     ["I will drink", "θα πίω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will find", "θα βρω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will go out", "θα βγω", ["verb", "future-tense", "first-person", "singular"]],
-    ["I will look", "θα κοιταζω", ["verb", "future-tense", "first-person", "singular"]],
+    ["I will look", "θα κοιτάξω", ["verb", "future-tense", "first-person", "singular"]],
     ["I try", "προσπαθώ", ["verb", "present-tense", "first-person", "singular"]],
     ["I bring", "φέρνω", ["verb", "present-tense", "first-person", "singular"]],
     ["I go", "φεύγω", ["verb", "present-tense", "first-person", "singular"]],
