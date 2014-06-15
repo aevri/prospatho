@@ -3,14 +3,14 @@
     background-color: black;
     height: 14vh;
     padding: 2vh;
-    font-size: 12vh;
+    font-size: 7vh;
     font-family: "sans-serif";
 }
 .answer {
     background-color: #AAA;
     height: 13vh;
     padding: 2vh;
-    font-size: 12vh;
+    font-size: 7vh;
     font-family: "sans-serif";
 }
 .score {
