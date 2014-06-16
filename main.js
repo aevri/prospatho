@@ -89,6 +89,14 @@ function main() {
 
 function make_translate_problems() {
     var all_translations = expanded_translations(TRANSLATIONS);
+    var problems = [];
+    problems = problems.concat(
+        make_pick_from_same_group_problems(
+            all_translations))
+    return problems;
+}
+
+function make_pick_from_same_group_problems(all_translations) {
     var tag_to_group = group_translations_by_tags(all_translations);
     var problems = [];
     for (var tag in tag_to_group) {
