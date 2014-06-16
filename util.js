@@ -16,7 +16,7 @@ function rgb_string(values) {
 
 function animate_bgcolor(elem, from, to, duration) {
     var start = new Date().getTime();
-    timer = setInterval(function() {
+    var timer = setInterval(function() {
         var now = new Date().getTime();
         var elapsed = now - start;
         var t = Math.min(1, elapsed / duration);
