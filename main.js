@@ -50,7 +50,15 @@ function main() {
                 score_number += 1;
 
                 // sucess animation
-                animate_bgcolor(score, [255, 255, 255], [0, 0, 0], 1000);
+                animate_bgcolor(answers[i], [0, 255, 128], [64, 64, 64], 1000);
+            } else {
+                // fail animation
+                animate_bgcolor(
+                    answers[game_state.correct_answer],
+                    [0, 255, 128],
+                    [64, 64, 64],
+                    1000);
+                animate_bgcolor(answers[i], [255, 0, 64], [64, 64, 64], 1000);
             }
             score.innerHTML = "score: " + score_number.toString();
 
