@@ -46,24 +46,30 @@ function main() {
     var make_process_answer_click = function(i) {
         return function() {
             // update score
+            var delay = 1000;
             if (i == game_state.correct_answer) {
                 score_number += 1;
 
                 // sucess animation
-                animate_bgcolor(answers[i], [0, 255, 128], [64, 64, 64], 1000);
+                animate_bgcolor(answers[i], [0, 255, 128], [64, 64, 64], delay);
             } else {
                 // fail animation
+                delay = 5000;
                 animate_bgcolor(
                     answers[game_state.correct_answer],
                     [0, 255, 128],
                     [64, 64, 64],
-                    1000);
-                animate_bgcolor(answers[i], [255, 0, 64], [64, 64, 64], 1000);
+                    delay);
+                animate_bgcolor(
+                    answers[i],
+                    [255, 0, 64],
+                    [64, 64, 64],
+                    delay / 5);
             }
             score.innerHTML = "score: " + score_number.toString();
 
             // transition to next problem
-            do_next_problem();
+            setTimeout(do_next_problem, delay);
         };
     };
 
