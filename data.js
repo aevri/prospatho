@@ -1,3 +1,5 @@
+"use strict";
+
 var TRANSLATIONS = [
     ["I will try", "θα προσπαθήσω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will turn", "θα γυρίσω", ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"]],

@@ -1,3 +1,5 @@
+"use strict";
+
 function lerp_int(from, to, t) {
     return Math.round(from + t * (to - from));
 }
@@ -30,7 +32,7 @@ function animate_bgcolor(elem, from, to, duration) {
 }
 
 function make_range(maximum) {
-    range = []
+    var range = []
     for (var i = 0; i < maximum; ++i) {
         range.push(i);
     }

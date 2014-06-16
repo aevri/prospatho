@@ -1,3 +1,5 @@
+"use strict";
+
 window.onload = function() {
     main()
 };
@@ -28,7 +30,7 @@ function main() {
         "correct_answer": 0,
     };
 
-    do_next_problem = function() {
+    var do_next_problem = function() {
         display_problem(
             question,
             answers,
@@ -40,7 +42,7 @@ function main() {
         }
     };
 
-    make_process_answer_click = function(i) {
+    var make_process_answer_click = function(i) {
         return function() {
             // update score
             if (i == game_state["correct_answer"]) {
@@ -59,7 +61,7 @@ function main() {
     // setup the game elements
     game.appendChild(question);
     for (var i = 0; i < num_answers; i++) {
-        a = document.createElement("div")
+        var a = document.createElement("div")
         a.setAttribute("class", "answer");
         a.onclick = make_process_answer_click(i);
         answers.push(a);
@@ -132,7 +134,7 @@ function expanded_verb(t) {
     }
     greek = greek.slice(0, -1);
 
-    expansions = [
+    var expansions = [
         [english_prefixes[0], greek_suffixes[0], ['singular', 'first-person']],
         [english_prefixes[1], greek_suffixes[1], ['singular', 'second-person']],
         [english_prefixes[2], greek_suffixes[2], ['singular', 'third-person']],
@@ -142,7 +144,7 @@ function expanded_verb(t) {
     ];
 
     for (var i = 0; i < expansions.length; ++i) {
-        e = expansions[i];
+        var e = expansions[i];
         expanded.push([
             e[0] + english,
             greek + e[1],
@@ -175,14 +177,14 @@ function expanded_gender(t) {
     }
     greek = greek.slice(0, -2);
 
-    expansions = [
+    var expansions = [
         ['(m)', suffixes[0], 'masculine'],
         ['(f)', suffixes[1], 'feminine'],
         ['(n)', suffixes[2], 'neuter'],
     ];
 
     for (var i = 0; i < expansions.length; ++i) {
-        e = expansions[i];
+        var e = expansions[i];
         expanded.push([
             english + ' ' + e[0],
             greek + e[1],
@@ -208,11 +210,11 @@ function group_translations_by_tags(translations) {
 function display_problem(question, answers, problem, game_state) {
     question.innerHTML = problem[0];
 
-    ordering = [0, 1, 2, 3];
+    var ordering = [0, 1, 2, 3];
     shuffle_array(ordering);
 
     for (var i=0; i<4; ++i) {
-        shuffled_i = ordering[i]
+        var shuffled_i = ordering[i]
         answers[i].innerHTML = problem[shuffled_i + 1];
         if (shuffled_i == 0) {
             game_state["correct_answer"] = i;
