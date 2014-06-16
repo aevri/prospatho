@@ -1,3 +1,4 @@
+/*jshint globalstrict: true*/
 "use strict";
 
 function lerp_int(from, to, t) {
@@ -32,7 +33,7 @@ function animate_bgcolor(elem, from, to, duration) {
 }
 
 function make_range(maximum) {
-    var range = []
+    var range = [];
     for (var i = 0; i < maximum; ++i) {
         range.push(i);
     }
@@ -42,7 +43,7 @@ function make_range(maximum) {
 function choose_n_excluding(choices, n, index) {
     var indices = make_range(choices.length);
     indices.splice(index, 1);
-    var chosen = []
+    var chosen = [];
     for (var i = 0; i < n; ++i) {
         var index_index = random_int(indices.length);
         var chosen_index = indices[index_index];
@@ -59,7 +60,7 @@ function swap_array_items(a, i, j) {
 }
 
 function random_int(less_than) {
-    return Math.floor(Math.random() * less_than)
+    return Math.floor(Math.random() * less_than);
 }
 
 function shuffle_array(a) {
@@ -114,7 +115,7 @@ function list_with_appended(original, item) {
 }
 
 function string_begins_with(s, prefix) {
-    return s.indexOf(prefix) == 0;
+    return s.indexOf(prefix) === 0;
 }
 
 function string_ends_with(s, suffix) {

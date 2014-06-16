@@ -1,7 +1,8 @@
+/*jshint globalstrict: true*/
 "use strict";
 
 window.onload = function() {
-    main()
+    main();
 };
 
 function main() {
@@ -27,7 +28,7 @@ function main() {
     var next_problem = 0;
     var score_number = 0;
     var game_state = {
-        "correct_answer": 0,
+        correct_answer: 0,
     };
 
     var do_next_problem = function() {
@@ -45,7 +46,7 @@ function main() {
     var make_process_answer_click = function(i) {
         return function() {
             // update score
-            if (i == game_state["correct_answer"]) {
+            if (i == game_state.correct_answer) {
                 score_number += 1;
 
                 // sucess animation
@@ -61,7 +62,7 @@ function main() {
     // setup the game elements
     game.appendChild(question);
     for (var i = 0; i < num_answers; i++) {
-        var a = document.createElement("div")
+        var a = document.createElement("div");
         a.setAttribute("class", "answer");
         a.onclick = make_process_answer_click(i);
         answers.push(a);
@@ -94,7 +95,7 @@ function make_translate_problems() {
 }
 
 function expanded_translations(translations) {
-    var expanded = []
+    var expanded = [];
     for (var i = 0; i < translations.length; ++i) {
         var t = translations[i];
         var tag = t[2];
@@ -111,8 +112,8 @@ function expanded_translations(translations) {
 
 function expanded_verb(t) {
     var expanded = [];
-    var english = new String(t[0]);
-    var greek = new String(t[1]);
+    var english = t[0].substr(0);
+    var greek = t[1].substr(0);
     var tags = clone_list(t[2]);
     assert(is_string_in_list('verb-type-a', tags));
     remove_string_from_list('verb-expand', tags);
@@ -156,8 +157,8 @@ function expanded_verb(t) {
 
 function expanded_gender(t) {
     var expanded = [];
-    var english = new String(t[0]);
-    var greek = new String(t[1]);
+    var english = t[0].substr(0);
+    var greek = t[1].substr(0);
     var tags = clone_list(t[2]);
     assert(is_string_in_list('masculine', tags));
     remove_string_from_list('gender-expand', tags);
@@ -214,10 +215,10 @@ function display_problem(question, answers, problem, game_state) {
     shuffle_array(ordering);
 
     for (var i=0; i<4; ++i) {
-        var shuffled_i = ordering[i]
+        var shuffled_i = ordering[i];
         answers[i].innerHTML = problem[shuffled_i + 1];
-        if (shuffled_i == 0) {
-            game_state["correct_answer"] = i;
+        if (shuffled_i === 0) {
+            game_state.correct_answer = i;
         }
     }
 }
