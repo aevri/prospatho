@@ -36,6 +36,7 @@ function main() {
     var process_answer_typed = function() {
         // update score
         var delay = 1000;
+        ui.textinput_expected.innerHTML = game_state.correct_answer;
         if (ui.textinput.value == game_state.correct_answer) {
             score_number += 1;
 
@@ -105,6 +106,7 @@ function make_ui() {
         answers_div: null,
         textinput_div: null,
         textinput: null,
+        textinput_expected: null,
         textinput_callback: null,
         click_callback: null
     };
@@ -136,7 +138,10 @@ function make_ui() {
             ui.textinput_callback();
         }
     };
+    ui.textinput_expected = document.createElement("div");
+    ui.textinput_expected.setAttribute("class", "expected");
     ui.textinput_div.appendChild(ui.textinput);
+    ui.textinput_div.appendChild(ui.textinput_expected);
     ui.textinput_div.style.display = 'none';
     ui.div.appendChild(ui.textinput_div);
 
