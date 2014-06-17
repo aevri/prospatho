@@ -132,6 +132,10 @@ function make_ui() {
     ui.textinput_div.setAttribute("class", "entry");
     ui.textinput = document.createElement("input");
     ui.textinput.type = "text";
+    ui.textinput.setAttribute("autocomplete", "off");
+    ui.textinput.setAttribute("autocorrect", "off");
+    ui.textinput.setAttribute("autocapitalize", "off");
+    ui.textinput.setAttribute("spellcheck", "off");
     ui.textinput.onkeyup = function(e) {
         var enter_key = 13;
         if (e.which == enter_key){
