@@ -166,11 +166,13 @@ function make_ui() {
     ui.show_answers = function() {
         ui.answers_div.style.display = 'block';
         ui.textinput_div.style.display = 'none';
+        document.activeElement.blur();
     };
 
     ui.show_textinput = function() {
         ui.textinput_div.style.display = 'block';
         ui.answers_div.style.display = 'none';
+        ui.textinput.focus();
     };
 
     return ui;
