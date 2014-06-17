@@ -14,6 +14,14 @@
     font-size: 7vh;
     font-family: "sans-serif";
 }
+.entry {
+    color: white;
+    background-color: rgb(64, 64, 64);
+    height: 58vh;
+    padding: 2vh;
+    font-size: 7vh;
+    font-family: "sans-serif";
+}
 .score {
     color: white;
     background-color: black;

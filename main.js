@@ -26,14 +26,32 @@ function main() {
 
     var do_next_problem = function() {
         display_problem(
-            ui.question,
-            ui.answers,
-            problems[next_problem],
-            game_state);
+            ui, problems[next_problem], game_state);
         next_problem++;
         if (next_problem == problems.length) {
             next_problem = 0;
         }
+    };
+
+    var process_answer_typed = function() {
+        // update score
+        var delay = 1000;
+        if (ui.textinput.value == game_state.correct_answer) {
+            score_number += 1;
+
+            // sucess animation
+            animate_bgcolor(
+                ui.textinput_div, [0, 255, 128], [64, 64, 64], delay);
+        } else {
+            // fail animation
+            delay = 5000;
+            animate_bgcolor(
+                ui.textinput_div, [255, 0, 64], [64, 64, 64], delay);
+        }
+        ui.score.innerHTML = "score: " + score_number.toString();
+
+        // transition to next problem
+        setTimeout(do_next_problem, delay);
     };
 
     var process_answer_click = function(i) {
@@ -66,11 +84,16 @@ function main() {
     };
 
     ui.click_callback = process_answer_click;
+    ui.textinput_callback = process_answer_typed;
 
     // setup the game elements
     game.appendChild(ui.div);
 
-    do_next_problem();
+    ui.question.innerHTML = "I try";
+    game_state.correct_answer = "προσπαθώ";
+    ui.show_textinput();
+
+    //do_next_problem();
 }
 
 function make_ui() {
@@ -80,6 +103,9 @@ function make_ui() {
         score: null,
         answers: [],
         answers_div: null,
+        textinput_div: null,
+        textinput: null,
+        textinput_callback: null,
         click_callback: null
     };
 
@@ -94,15 +120,28 @@ function make_ui() {
 
     ui.div.appendChild(ui.question);
 
-    ui.answers_div = document.createElement("div");
-
     var make_click_callback = function(index) {
         return function() {
             ui.click_callback(index);
         }
     };
 
+    ui.textinput_div = document.createElement("div");
+    ui.textinput_div.setAttribute("class", "entry");
+    ui.textinput = document.createElement("input");
+    ui.textinput.type = "text";
+    ui.textinput.onkeyup = function(e) {
+        var enter_key = 13;
+        if (e.which == enter_key){
+            ui.textinput_callback();
+        }
+    };
+    ui.textinput_div.appendChild(ui.textinput);
+    ui.textinput_div.style.display = 'none';
+    ui.div.appendChild(ui.textinput_div);
+
     var num_answers = 4;
+    ui.answers_div = document.createElement("div");
     for (var i = 0; i < num_answers; i++) {
         var a = document.createElement("div");
         a.setAttribute("class", "answer");
@@ -110,8 +149,20 @@ function make_ui() {
         ui.answers.push(a);
         ui.answers_div.appendChild(a);
     }
+    ui.answers_div.style.display = 'none';
     ui.div.appendChild(ui.answers_div);
+
     ui.div.appendChild(ui.score);
+
+    ui.show_answers = function() {
+        ui.answers_div.style.display = 'block';
+        ui.textinput_div.style.display = 'none';
+    };
+
+    ui.show_textinput = function() {
+        ui.textinput_div.style.display = 'block';
+        ui.answers_div.style.display = 'none';
+    };
 
     return ui;
 }
@@ -259,17 +310,19 @@ function group_translations_by_tags(translations) {
     return groups;
 }
 
-function display_problem(question, answers, problem, game_state) {
-    question.innerHTML = problem[0];
+function display_problem(ui, problem, game_state) {
+    ui.question.innerHTML = problem[0];
 
     var ordering = [0, 1, 2, 3];
     shuffle_array(ordering);
 
     for (var i=0; i<4; ++i) {
         var shuffled_i = ordering[i];
-        answers[i].innerHTML = problem[shuffled_i + 1];
+        ui.answers[i].innerHTML = problem[shuffled_i + 1];
         if (shuffled_i === 0) {
             game_state.correct_answer = i;
         }
     }
+
+    ui.show_answers();
 }
