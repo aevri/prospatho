@@ -10,6 +10,7 @@ function main() {
 
     var problems = [
         ["I try", "προσπαθώ", "προσπαδώ", "πρόσπαθω", "πρόσπαδω"],
+        ["I try", "προσπαθώ"],
     ];
 
     var auto_problems = make_translate_problems();
@@ -91,11 +92,7 @@ function main() {
     // setup the game elements
     game.appendChild(ui.div);
 
-    ui.question.innerHTML = "I try";
-    game_state.correct_answer = "προσπαθώ";
-    ui.show_textinput();
-
-    //do_next_problem();
+    do_next_problem();
 }
 
 function make_ui() {
@@ -329,16 +326,22 @@ function group_translations_by_tags(translations) {
 function display_problem(ui, problem, game_state) {
     ui.question.innerHTML = problem[0];
 
-    var ordering = [0, 1, 2, 3];
-    shuffle_array(ordering);
+    if (problem.length == 5) {
+        var ordering = [0, 1, 2, 3];
+        shuffle_array(ordering);
 
-    for (var i=0; i<4; ++i) {
-        var shuffled_i = ordering[i];
-        ui.answers[i].innerHTML = problem[shuffled_i + 1];
-        if (shuffled_i === 0) {
-            game_state.correct_answer = i;
+        for (var i=0; i<4; ++i) {
+            var shuffled_i = ordering[i];
+            ui.answers[i].innerHTML = problem[shuffled_i + 1];
+            if (shuffled_i === 0) {
+                game_state.correct_answer = i;
+            }
         }
+        ui.show_answers();
+    } else {
+        assert(problem.length == 2);
+        game_state.correct_answer = problem[1];
+        ui.textinput_expected.innerHTML = "";
+        ui.show_textinput();
     }
-
-    ui.show_answers();
 }
