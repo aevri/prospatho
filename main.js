@@ -172,6 +172,10 @@ function make_ui() {
     ui.show_textinput = function() {
         ui.textinput_div.style.display = 'block';
         ui.answers_div.style.display = 'none';
+
+        // looks like this won't help on Apple mobile devices:
+        // http://stackoverflow.com/questions/12204571/mobile-safari-
+        //   javascript-focus-method-on-inputfield-only-works-with-click
         ui.textinput.focus();
     };
 
