@@ -15,15 +15,8 @@ function main() {
     problems = problems.concat(make_translate_problems());
     shuffle_array(problems);
 
-    var question = document.createElement("div");
-    question.setAttribute("class", "question");
+    var ui = make_ui();
 
-    var score = document.createElement("div");
-    score.setAttribute("class", "score");
-    score.innerHTML = "No score";
-
-    var answers = [];
-    var num_answers = 4;
     var current_correct_answer = 0;
     var next_problem = 0;
     var score_number = 0;
@@ -33,8 +26,8 @@ function main() {
 
     var do_next_problem = function() {
         display_problem(
-            question,
-            answers,
+            ui.question,
+            ui.answers,
             problems[next_problem],
             game_state);
         next_problem++;
@@ -43,48 +36,84 @@ function main() {
         }
     };
 
-    var make_process_answer_click = function(i) {
-        return function() {
-            // update score
-            var delay = 1000;
-            if (i == game_state.correct_answer) {
-                score_number += 1;
+    var process_answer_click = function(i) {
+        // update score
+        var delay = 1000;
+        if (i == game_state.correct_answer) {
+            score_number += 1;
 
-                // sucess animation
-                animate_bgcolor(answers[i], [0, 255, 128], [64, 64, 64], delay);
-            } else {
-                // fail animation
-                delay = 5000;
-                animate_bgcolor(
-                    answers[game_state.correct_answer],
-                    [0, 255, 128],
-                    [64, 64, 64],
-                    delay);
-                animate_bgcolor(
-                    answers[i],
-                    [255, 0, 64],
-                    [64, 64, 64],
-                    delay / 5);
-            }
-            score.innerHTML = "score: " + score_number.toString();
+            // sucess animation
+            animate_bgcolor(
+                ui.answers[i], [0, 255, 128], [64, 64, 64], delay);
+        } else {
+            // fail animation
+            delay = 5000;
+            animate_bgcolor(
+                ui.answers[game_state.correct_answer],
+                [0, 255, 128],
+                [64, 64, 64],
+                delay);
+            animate_bgcolor(
+                ui.answers[i],
+                [255, 0, 64],
+                [64, 64, 64],
+                delay / 5);
+        }
+        ui.score.innerHTML = "score: " + score_number.toString();
 
-            // transition to next problem
-            setTimeout(do_next_problem, delay);
-        };
+        // transition to next problem
+        setTimeout(do_next_problem, delay);
     };
 
+    ui.click_callback = process_answer_click;
+
     // setup the game elements
-    game.appendChild(question);
+    game.appendChild(ui.div);
+
+    do_next_problem();
+}
+
+function make_ui() {
+    var ui = {
+        div: null,
+        question: null,
+        score: null,
+        answers: [],
+        answers_div: null,
+        click_callback: null
+    };
+
+    ui.div = document.createElement("div");
+
+    ui.question = document.createElement("div");
+    ui.question.setAttribute("class", "question");
+
+    ui.score = document.createElement("div");
+    ui.score.setAttribute("class", "score");
+    ui.score.innerHTML = "No score";
+
+    ui.div.appendChild(ui.question);
+
+    ui.answers_div = document.createElement("div");
+
+    var make_click_callback = function(index) {
+        return function() {
+            ui.click_callback(index);
+        }
+    };
+
+    var num_answers = 4;
     for (var i = 0; i < num_answers; i++) {
         var a = document.createElement("div");
         a.setAttribute("class", "answer");
-        a.onclick = make_process_answer_click(i);
-        answers.push(a);
-        game.appendChild(a);
+        a.onclick = make_click_callback(i);
+        ui.answers.push(a);
+        ui.answers_div.appendChild(a);
     }
-    game.appendChild(score);
+    ui.div.appendChild(ui.answers_div);
+    ui.div.appendChild(ui.score);
 
-    do_next_problem();
+    return ui;
 }
 
 function make_translate_problems() {
