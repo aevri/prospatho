@@ -183,9 +183,27 @@ function make_ui() {
 function make_translate_problems() {
     var all_translations = expanded_translations(TRANSLATIONS);
     var problems = [];
+
     problems = problems.concat(
         make_pick_from_same_group_problems(
-            all_translations))
+            all_translations));
+
+    problems = problems.concat(
+        make_user_input_problems(
+            all_translations));
+
+    return problems;
+}
+
+function make_user_input_problems(translations) {
+    var problems = [];
+    for (var i = 0; i < translations.length; ++i) {
+        var problem = [
+            translations[i][0],
+            translations[i][1],
+        ];
+        problems.push(problem);
+    }
     return problems;
 }
 
