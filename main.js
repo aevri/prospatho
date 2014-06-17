@@ -12,8 +12,9 @@ function main() {
         ["I try", "προσπαθώ", "προσπαδώ", "πρόσπαθω", "πρόσπαδω"],
     ];
 
-    problems = problems.concat(make_translate_problems());
-    shuffle_array(problems);
+    var auto_problems = make_translate_problems();
+    shuffle_array(auto_problems);
+    problems = problems.concat(auto_problems);
 
     var ui = make_ui();
 
