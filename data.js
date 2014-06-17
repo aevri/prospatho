@@ -60,7 +60,7 @@ var TRANSLATIONS = [
     ["I drink", "πίνω", ["verb", "present-tense", "first-person", "singular"]],
     ["I find", "βρίσκω", ["verb", "present-tense", "first-person", "singular"]],
     ["I go out", "βγαίνω", ["verb", "present-tense", "first-person", "singular"]],
-    ["I look", "κοιταζω", ["verb", "present-tense", "first-person", "singular"]],
+    ["I look", "κοιτάζω", ["verb", "present-tense", "first-person", "singular"]],
     ["I know", "ξέρω", ["verb", "present-tense", "first-person", "singular"]],
     ["I close", "κλείνω", ["verb", "present-tense", "first-person", "singular"]],
     ["I have", "έχω", ["verb", "present-tense", "first-person", "singular"]],
