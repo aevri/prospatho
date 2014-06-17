@@ -35,7 +35,7 @@ function main() {
 
     var process_answer_typed = function() {
         // update score
-        var delay = 1000;
+        var delay = 2000;
         ui.textinput_expected.innerHTML = game_state.correct_answer;
         if (ui.textinput.value == game_state.correct_answer) {
             score_number += 1;
@@ -45,7 +45,7 @@ function main() {
                 ui.textinput_div, [0, 255, 128], [64, 64, 64], delay);
         } else {
             // fail animation
-            delay = 5000;
+            delay = 6000;
             animate_bgcolor(
                 ui.textinput_div, [255, 0, 64], [64, 64, 64], delay);
         }
