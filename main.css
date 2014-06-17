@@ -1,32 +1,34 @@
 .question {
     color: white;
     background-color: black;
-    height: 14vh;
-    padding: 2vh;
-    font-size: 7vh;
+    height: 56pt;
+    padding: 8pt;
+    font-size: 28pt;
     font-family: "sans-serif";
 }
 .answer {
     color: white;
     background-color: rgb(64, 64, 64);
-    height: 13vh;
-    padding: 2vh;
-    font-size: 7vh;
+    height: 52pt;
+    padding: 8pt;
+    font-size: 28pt;
     font-family: "sans-serif";
 }
 .entry {
     color: white;
     background-color: rgb(64, 64, 64);
-    height: 58vh;
-    padding: 2vh;
-    font-size: 7vh;
+    height: 232pt;
+    padding: 8pt;
+    font-size: 28pt;
     font-family: "sans-serif";
 }
 .score {
     color: white;
     background-color: black;
-    height: 5vh;
-    padding: 1vh;
-    font-size: 5vh;
+    height: 20pt;
+    padding: 4pt;
+    font-size: 20pt;
     font-family: "sans-serif";
 }
+
+input[type='text'], textarea {font-size: 14pt;}
