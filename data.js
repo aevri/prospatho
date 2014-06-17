@@ -1,11 +1,19 @@
 /*jshint globalstrict: true*/
 "use strict";
 
+var TYPE_A_VERBS = [
+    ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"],
+    ["I will turn", "θα γυρίσω"],
+    ["I will close", "θα κλείσω"],
+    ["I will arrive", "θα φτάνω"],
+    ["I will look", "θα κοιτάξω"],
+];
+
+var LISTS_TO_EXPAND = [
+    TYPE_A_VERBS,
+];
+
 var TRANSLATIONS = [
-    ["I will try", "θα προσπαθήσω", ["verb", "future-tense", "first-person", "singular"]],
-    ["I will turn", "θα γυρίσω", ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"]],
-    ["I will close", "θα κλείσω", ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"]],
-    ["I will arrive", "θα φτάνω", ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"]],
     ["I will bring", "θα φέρω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will go", "θα φύγω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will send", "θα στείλω", ["verb", "future-tense", "first-person", "singular"]],
@@ -32,8 +40,6 @@ var TRANSLATIONS = [
     ["I will drink", "θα πίω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will find", "θα βρω", ["verb", "future-tense", "first-person", "singular"]],
     ["I will go out", "θα βγω", ["verb", "future-tense", "first-person", "singular"]],
-    ["I will look", "θα κοιτάξω", ["verb-expand", "verb-type-a", "future-tense", "first-person", "singular"]],
-    ["I try", "προσπαθώ", ["verb", "present-tense", "first-person", "singular"]],
     ["I bring", "φέρνω", ["verb", "present-tense", "first-person", "singular"]],
     ["I go", "φεύγω", ["verb", "present-tense", "first-person", "singular"]],
     ["I send", "στέλνω", ["verb", "present-tense", "first-person", "singular"]],

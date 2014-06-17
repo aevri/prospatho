@@ -181,18 +181,52 @@ function make_ui() {
 }
 
 function make_translate_problems() {
-    var all_translations = expanded_translations(TRANSLATIONS);
+    var all_lists = expanded_lists(LISTS_TO_EXPAND);
+    var all_translations = joined_lists(all_lists).concat(TRANSLATIONS);
+    var translations = expanded_translations(all_translations);
     var problems = [];
 
     problems = problems.concat(
         make_pick_from_same_group_problems(
-            all_translations));
+            translations));
 
     problems = problems.concat(
         make_user_input_problems(
-            all_translations));
+            translations));
 
     return problems;
+}
+
+function joined_lists(lists) {
+    var joined = [];
+    for (var i = 0; i < lists.length; ++i) {
+        for (var j = 0; j < lists[i].length; ++j) {
+            joined.push(lists[i][j]);
+        }
+    }
+    return joined;
+}
+
+function expanded_lists(lists) {
+    var expanded = [];
+    for (var i = 0; i < lists.length; ++i) {
+        expanded.push(expanded_list(lists[i]));
+    }
+    return expanded;
+}
+
+function expanded_list(list) {
+    var expanded = [];
+    var tags = list[0];
+    for (var i = 1; i < list.length; ++i) {
+        var translation = [
+            list[i][0],
+            list[i][1],
+            tags
+        ];
+        expanded.push(translation);
+    }
+    return expanded;
 }
 
 function make_user_input_problems(translations) {
