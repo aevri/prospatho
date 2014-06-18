@@ -190,9 +190,9 @@ function make_translate_problems() {
         make_pick_from_same_group_problems(
             translations));
 
-    problems = problems.concat(
-        make_user_input_problems(
-            translations));
+    // problems = problems.concat(
+    //     make_user_input_problems(
+    //         translations));
 
     return problems;
 }
