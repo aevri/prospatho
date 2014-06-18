@@ -99,6 +99,7 @@ var MASCULINE_SINGULAR_NOUNS = [
     ["the air / wind", "ο αέρας"],
     ["the man / husband", "ο άντρας"],
     ["the peas", "ο αρακάς"],
+    ["the rock", "ο βράχος"],
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
@@ -114,6 +115,11 @@ var FEMININE_SINGULAR_NOUNS = [
     ["the receipt", "η απόδειξη"],
     ["the diary / agenda", "η ατζέντα"],
     ["the courtyard", "η αυλή"],
+    ["the vanilla", "η βανίλια"],
+    ["the gasoline", "η βενζίνη"],
+    ["the balcony / porch", "η βεράντα"],
+    ["the night / evening", "η βραδιά"],
+    ["Britain", "η Βριτανία"],
 ];
 
 var NEUTER_SINGULAR_NOUNS = [
@@ -134,6 +140,11 @@ var NEUTER_SINGULAR_NOUNS = [
     ["the alphabet", "το αλφάβητο"],
     ["the refreshment", "το αναψυκτιλό"],
     ["the pear", "το αχλάδι"],
+    ["the vase", "το βάζο"],
+    ["the apricot", "το βερίκοκο"],
+    ["the video", "το βίντεο"],
+    ["the mountain", "το βουνό"],
+    ["the butter", "το βούτυρο"],
 ];
 
 var LISTS_TO_EXPAND = [
