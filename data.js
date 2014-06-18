@@ -90,8 +90,55 @@ var ORDINALS = [
     ["twentieth", "εικοστός"],
 ];
 
+var MASCULINE_SINGULAR_NOUNS = [
+    ["noun", "masculine", "singular"],
+    ["the lighter", "ο αναπτήρας"],
+    ["the computer", "ο υπολογιστής"],
+    ["the envelope", "ο φάκελος"],
+    ["the garden", "ο κήπος"],
+    ["the air / wind", "ο αέρας"],
+    ["the man / husband", "ο άντρας"],
+    ["the peas", "ο αρακάς"],
+];
+
+var FEMININE_SINGULAR_NOUNS = [
+    ["noun", "feminine", "singular"],
+    ["the chair", "η καρέκλα"],
+    ["the motorbike", "η μηχανή"],
+    ["the television", "η τηλεόραση"],
+    ["the newspaper", "η εφημερίδα"],
+    ["England", "η Αγγλία"],
+    ["the market", "η αγορά"],
+    ["Athens", "η Αθήνα"],
+    ["America", "η Αμερική"],
+    ["the receipt", "η απόδειξη"],
+    ["the diary / agenda", "η ατζέντα"],
+    ["the courtyard", "η αυλή"],
+];
+
+var NEUTER_SINGULAR_NOUNS = [
+    ["noun", "neuter", "singular"],
+    ["the statue", "το άγαλμα"],
+    ["the wallet", "το πορτοφόλι"],
+    ["the car", "το αυτοκίνητο"],
+    ["the souvlaki", "το σουβλάκι"],
+    ["the coin", "το κέρμα"],
+    ["the house", "το σπίτι"],
+    ["the book", "το βιβλίο"],
+    ["the clock", "το ρολόι"],
+    ["the egg", "το αβγό"],
+    ["the cucumber", "το αγγούρι"],
+    ["the airport", "το αεροδρόμιο"],
+    ["the airplane", "το αεροπλάνο"],
+    ["the salt", "το αλάτι"],
+    ["the alphabet", "το αλφάβητο"],
+    ["the refreshment", "το αναψυκτιλό"],
+    ["the pear", "το αχλάδι"],
+];
+
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
+    MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
 ];
 
 var TRANSLATIONS = [
