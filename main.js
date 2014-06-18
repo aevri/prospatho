@@ -394,6 +394,7 @@ function display_problem(ui, problem, game_state) {
         assert(problem.length == 2);
         game_state.correct_answer = problem[1];
         ui.textinput_expected.innerHTML = "";
+        ui.textinput.value = "";
         ui.show_textinput();
     }
 }
