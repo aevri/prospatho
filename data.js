@@ -145,6 +145,7 @@ var NEUTER_SINGULAR_NOUNS = [
     ["the video", "το βίντεο"],
     ["the mountain", "το βουνό"],
     ["the butter", "το βούτυρο"],
+    ["the milk", "το γάλα"],
 ];
 
 var LISTS_TO_EXPAND = [
