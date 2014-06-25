@@ -19,6 +19,7 @@ function main() {
     var ui = make_ui();
 
     var current_correct_answer = 0;
+    var current_problem = 0;
     var next_problem = 0;
     var score_number = 0;
     var game_state = {
@@ -26,8 +27,10 @@ function main() {
     };
 
     var do_next_problem = function() {
+        var level = get_problem_level(problems[next_problem][0]);
         display_problem(
-            ui, problems[next_problem], game_state, 0);
+            ui, problems[next_problem], game_state, level);
+        current_problem = next_problem;
         next_problem++;
         if (next_problem == problems.length) {
             next_problem = 0;
@@ -39,12 +42,14 @@ function main() {
         var delay = 2000;
         ui.textinput_expected.innerHTML = game_state.correct_answer;
         if (ui.textinput.value == game_state.correct_answer) {
+            update_problem_on_success(problems[current_problem]);
             score_number += 1;
 
             // sucess animation
             animate_bgcolor(
                 ui.textinput_div, [0, 255, 128], [64, 64, 64], delay);
         } else {
+            update_problem_on_fail(problems[current_problem]);
             // fail animation
             delay = 6000;
             animate_bgcolor(
@@ -60,12 +65,14 @@ function main() {
         // update score
         var delay = 1000;
         if (i == game_state.correct_answer) {
+            update_problem_on_success(problems[current_problem]);
             score_number += 1;
 
             // sucess animation
             animate_bgcolor(
                 ui.answers[i], [0, 255, 128], [64, 64, 64], delay);
         } else {
+            update_problem_on_fail(problems[current_problem]);
             // fail animation
             delay = 5000;
             animate_bgcolor(
@@ -92,6 +99,46 @@ function main() {
     game.appendChild(ui.div);
 
     do_next_problem();
+}
+
+function update_problem_on_success(problem) {
+    var problem_name = problem[0];
+    var problem_level = get_problem_level(problem_name);
+    problem_level += 1;
+    set_problem_level(problem_name, problem_level);
+}
+
+function update_problem_on_fail(problem) {
+    var problem_name = problem[0];
+    var problem_level = get_problem_level(problem_name);
+    problem_level -= 1;
+    if (problem_level < 0) {
+        problem_level = 0;
+    }
+    set_problem_level(problem_name, problem_level);
+}
+
+function set_problem_level(problem_name, value) {
+    var problem_data = localStorage.getItem(problem_name);
+    if (problem_data == null) {
+        problem_data = {};
+    } else {
+        problem_data = JSON.parse(problem_data);
+    }
+    problem_data["level"] = value;
+    localStorage.setItem(problem_name, JSON.stringify(problem_data));
+}
+
+function get_problem_level(problem_name) {
+    var problem_data = localStorage.getItem(problem_name);
+    if (problem_data == null) {
+        return 0;
+    }
+    problem_data = JSON.parse(problem_data);
+    if (!("level" in problem_data)) {
+        return 0;
+    }
+    return problem_data["level"];
 }
 
 function make_ui() {
