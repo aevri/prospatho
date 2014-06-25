@@ -138,7 +138,7 @@ var NEUTER_SINGULAR_NOUNS = [
     ["the airplane", "το αεροπλάνο"],
     ["the salt", "το αλάτι"],
     ["the alphabet", "το αλφάβητο"],
-    ["the refreshment", "το αναψυκτιλό"],
+    ["the refreshment", "το αναψυκτικό"],
     ["the pear", "το αχλάδι"],
     ["the vase", "το βάζο"],
     ["the apricot", "το βερίκοκο"],
