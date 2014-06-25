@@ -22,19 +22,25 @@ function main() {
     var current_problem = 0;
     var next_problem = 0;
     var score_number = 0;
+    var min_level = get_min_level(problems);
     var game_state = {
         correct_answer: 0,
     };
 
     var do_next_problem = function() {
-        var level = get_problem_level(problems[next_problem][0]);
+        var level = null;
+        do {
+            level = get_problem_level(problems[next_problem][0]);
+            current_problem = next_problem;
+            next_problem++;
+            if (next_problem == problems.length) {
+                next_problem = 0;
+                min_level = get_min_level(problems);
+            }
+        }
+        while (level > min_level);
         display_problem(
             ui, problems[next_problem], game_state, level);
-        current_problem = next_problem;
-        next_problem++;
-        if (next_problem == problems.length) {
-            next_problem = 0;
-        }
     };
 
     var process_answer_typed = function() {
@@ -99,6 +105,18 @@ function main() {
     game.appendChild(ui.div);
 
     do_next_problem();
+}
+
+function get_min_level(problems) {
+    var min_level = null;
+    for (var i = 0; i < problems.length; ++i) {
+        var level = get_problem_level(problems[i][0]);
+        if (min_level == null || level < min_level) {
+            min_level = level;
+        }
+    }
+    assert(min_level != null);
+    return min_level;
 }
 
 function update_problem_on_success(problem) {
