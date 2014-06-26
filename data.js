@@ -102,6 +102,18 @@ var MASCULINE_SINGULAR_NOUNS = [
     ["the rock", "ο βράχος"],
 ];
 
+var MASCULINE_SINGULAR_ACCUSATIVE_NOUNS = [
+    ["noun", "masculine", "singular", "accusitive"],
+    ["from the lighter", "από τον αναπτήρα"],
+    ["from the computer", "από τον υπολογιστή"],
+    ["from the envelope", "από τον φάκελο"],
+    ["from the garden", "από τον κήπο"],
+    ["from the air / wind", "από τον αέρα"],
+    ["from the man / husband", "από τον άντρα"],
+    ["from the peas", "από τον αρακά"],
+    ["from the rock", "από τον βράχο"],
+];
+
 var FEMININE_SINGULAR_NOUNS = [
     ["noun", "feminine", "singular"],
     ["the chair", "η καρέκλα"],
@@ -151,6 +163,7 @@ var NEUTER_SINGULAR_NOUNS = [
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
+    MASCULINE_SINGULAR_ACCUSATIVE_NOUNS
 ];
 
 var TRANSLATIONS = [
