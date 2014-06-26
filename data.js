@@ -102,6 +102,17 @@ var MASCULINE_SINGULAR_NOUNS = [
     ["the rock", "ο βράχος"],
 ];
 
+var MASCULINE_PLURAL_NOUNS = [
+    ["noun", "masculine", "plural"],
+    ["the lighters", "οι αναπτήρες"],
+    ["the computers", "οι υπολογιστές"],
+    ["the envelopes", "οι φάκελοι"],
+    ["the gardens", "οι κήποι"],
+    ["the airs / winds", "οι αέρες"],
+    ["the men / husbands", "οι άντρες"],
+    ["the rocks", "οι βράχοι"],
+];
+
 var MASCULINE_SINGULAR_ACCUSATIVE_NOUNS = [
     ["noun", "masculine", "singular", "accusitive"],
     ["from the lighter", "από τον αναπτήρα"],
@@ -112,6 +123,17 @@ var MASCULINE_SINGULAR_ACCUSATIVE_NOUNS = [
     ["from the man / husband", "από τον άντρα"],
     ["from the peas", "από τον αρακά"],
     ["from the rock", "από τον βράχο"],
+];
+
+var MASCULINE_PLURAL_ACCUSATIVE_NOUNS = [
+    ["noun", "masculine", "plural", "accusative"],
+    ["from the lighters", "από τους αναπτήρες"],
+    ["from the computers", "από τους υπολογιστές"],
+    ["from the envelopes", "από τους φάκελοι"],
+    ["from the gardens", "από τους κήποι"],
+    ["from the airs / winds", "από τους αέρες"],
+    ["from the men / husbands", "από τους άντρες"],
+    ["from the rocks", "από τους βράχοι"],
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
@@ -163,7 +185,8 @@ var NEUTER_SINGULAR_NOUNS = [
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
-    MASCULINE_SINGULAR_ACCUSATIVE_NOUNS
+    MASCULINE_PLURAL_NOUNS, MASCULINE_SINGULAR_ACCUSATIVE_NOUNS,
+    MASCULINE_PLURAL_ACCUSATIVE_NOUNS
 ];
 
 var TRANSLATIONS = [
