@@ -21,7 +21,6 @@ function main() {
     var current_correct_answer = 0;
     var current_problem = 0;
     var next_problem = 0;
-    var score_number = 0;
     var min_level = get_min_level(problems);
     var game_state = {
         correct_answer: 0,
@@ -49,7 +48,6 @@ function main() {
         ui.textinput_expected.innerHTML = game_state.correct_answer;
         if (ui.textinput.value == game_state.correct_answer) {
             update_problem_on_success(problems[current_problem]);
-            score_number += 1;
 
             // sucess animation
             animate_bgcolor(
@@ -61,7 +59,6 @@ function main() {
             animate_bgcolor(
                 ui.textinput_div, [255, 0, 64], [64, 64, 64], delay);
         }
-        ui.score.innerHTML = "score: " + score_number.toString();
 
         // transition to next problem
         setTimeout(do_next_problem, delay);
@@ -72,7 +69,6 @@ function main() {
         var delay = 1000;
         if (i == game_state.correct_answer) {
             update_problem_on_success(problems[current_problem]);
-            score_number += 1;
 
             // sucess animation
             animate_bgcolor(
@@ -92,7 +88,6 @@ function main() {
                 [64, 64, 64],
                 delay / 5);
         }
-        ui.score.innerHTML = "score: " + score_number.toString();
 
         // transition to next problem
         setTimeout(do_next_problem, delay);
@@ -163,7 +158,7 @@ function make_ui() {
     var ui = {
         div: null,
         question: null,
-        score: null,
+        level: null,
         answers: [],
         answers_div: null,
         textinput_div: null,
@@ -178,9 +173,9 @@ function make_ui() {
     ui.question = document.createElement("div");
     ui.question.setAttribute("class", "question");
 
-    ui.score = document.createElement("div");
-    ui.score.setAttribute("class", "score");
-    ui.score.innerHTML = "No score";
+    ui.level = document.createElement("div");
+    ui.level.setAttribute("class", "level");
+    ui.level.innerHTML = "No level";
 
     ui.div.appendChild(ui.question);
 
@@ -223,7 +218,7 @@ function make_ui() {
     ui.answers_div.style.display = 'none';
     ui.div.appendChild(ui.answers_div);
 
-    ui.div.appendChild(ui.score);
+    ui.div.appendChild(ui.level);
 
     ui.show_answers = function() {
         ui.answers_div.style.display = 'block';
@@ -444,4 +439,5 @@ function display_problem(ui, problem, game_state, level) {
         ui.textinput.value = "";
         ui.show_textinput();
     }
+    ui.level.innerHTML = "level: " + level.toString();
 }
