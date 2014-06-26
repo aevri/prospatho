@@ -29,13 +29,13 @@ function main() {
     var do_next_problem = function() {
         var level = null;
         do {
-            level = get_problem_level(problems[next_problem][0]);
-            current_problem = next_problem;
-            next_problem++;
             if (next_problem == problems.length) {
                 next_problem = 0;
                 min_level = get_min_level(problems);
             }
+            current_problem = next_problem;
+            next_problem++;
+            level = get_problem_level(problems[current_problem][0]);
         }
         while (level > min_level);
         display_problem(
