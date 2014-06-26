@@ -39,7 +39,7 @@ function main() {
         }
         while (level > min_level);
         display_problem(
-            ui, problems[next_problem], game_state, level);
+            ui, problems[current_problem], game_state, level);
     };
 
     var process_answer_typed = function() {
