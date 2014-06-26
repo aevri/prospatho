@@ -182,11 +182,19 @@ var NEUTER_SINGULAR_NOUNS = [
     ["the milk", "το γάλα"],
 ];
 
+var QUESTIONS = [
+    ["question"],
+    ["how many? (m, nom)", "πόσοι;"],
+    ["how many? (m, acc)", "πόσους;"],
+    ["how many? (f)", "πόσες;"],
+    ["how many? (n)", "πόσα;"],
+]
+
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
     MASCULINE_PLURAL_NOUNS, MASCULINE_SINGULAR_ACCUSATIVE_NOUNS,
-    MASCULINE_PLURAL_ACCUSATIVE_NOUNS
+    MASCULINE_PLURAL_ACCUSATIVE_NOUNS, QUESTIONS
 ];
 
 var TRANSLATIONS = [
