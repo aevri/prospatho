@@ -17,6 +17,10 @@ function rgb_string(values) {
     return "rgb(" + values[0] + ", " + values[1] + ", " + values[2] + ")";
 }
 
+function set_bgcolor(elem, rgb) {
+    elem.style.backgroundColor = rgb_string(rgb);
+}
+
 function animate_bgcolor(elem, from, to, duration) {
     var start = new Date().getTime();
     var timer = setInterval(function() {

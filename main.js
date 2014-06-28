@@ -422,6 +422,18 @@ function display_problem(ui, problem, game_state, level) {
     ui.question.innerHTML = problem[0];
 
     if (level == 0) {
+      set_bgcolor(ui.question, [0, 0, 0]);
+    } else if (level == 1) {
+      set_bgcolor(ui.question, [0, 64, 32]);
+    } else if (level == 2) {
+      set_bgcolor(ui.question, [64, 0, 32]);
+    } else if (level == 3) {
+      set_bgcolor(ui.question, [32, 0, 64]);
+    } else {
+      set_bgcolor(ui.question, [64, 0, 64]);
+    }
+
+    if (level == 0) {
         var ordering = [0, 1, 2, 3];
         shuffle_array(ordering);
 
