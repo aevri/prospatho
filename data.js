@@ -129,11 +129,11 @@ var MASCULINE_PLURAL_ACCUSATIVE_NOUNS = [
     ["noun", "masculine", "plural", "accusative"],
     ["from the lighters", "από τους αναπτήρες"],
     ["from the computers", "από τους υπολογιστές"],
-    ["from the envelopes", "από τους φάκελοι"],
-    ["from the gardens", "από τους κήποι"],
+    ["from the envelopes", "από τους φάκελους"],
+    ["from the gardens", "από τους κήπους"],
     ["from the airs / winds", "από τους αέρες"],
     ["from the men / husbands", "από τους άντρες"],
-    ["from the rocks", "από τους βράχοι"],
+    ["from the rocks", "από τους βράχους"],
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
