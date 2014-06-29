@@ -378,8 +378,6 @@ function expanded_noun(t) {
 }
 
 function expanded_masculine_noun(english, greek, tags) {
-    var expanded = [];
-
     // TODO: fix stresses to last vowel
     var greek_suffixes = [
       ['ης', 'η', 'ες', 'ες'],
@@ -390,18 +388,6 @@ function expanded_masculine_noun(english, greek, tags) {
       ['ός', 'ό', 'όι', 'όυς']
     ];
 
-    var ending_type = null;
-    for (var i = 0; i < greek_suffixes.length; ++i) {
-        if (string_ends_with(greek, greek_suffixes[i][0])) {
-            assert(ending_type == null);
-            ending_type = i;
-        }
-    }
-    assert(ending_type != null);
-
-    greek = string_without_prefix(greek, 'ο');
-    greek = string_without_suffix(greek, greek_suffixes[ending_type][0]);
-
     var expansions = [
         ['The', '', 'ο', ['singular', 'nominative']],
         ['From the', '', 'από τον', ['singular', 'accusative']],
@@ -409,26 +395,32 @@ function expanded_masculine_noun(english, greek, tags) {
         ['From the', 's', 'από τους', ['plural', 'accusative']],
     ];
 
-    for (var i = 0; i < expansions.length; ++i) {
-        var e = expansions[i];
-        expanded.push([
-            e[0] + english + e[1],
-            e[2] + greek + greek_suffixes[ending_type][i],
-            list_with_extended(tags, e[3])]);
-    }
-
-    return expanded;
+    return expanded_noun_util(
+        english, greek, tags, greek_suffixes, 'ο', expansions);
 }
 
 function expanded_feminine_noun(english, greek, tags) {
-    var expanded = [];
-
     var greek_suffixes = [
       ['η', 'η', 'ες', 'ες'],
       ['ή', 'ή', 'ές', 'ές'],
       ['α', 'α', 'ες', 'ες'],
       ['ά', 'ά', 'ές', 'ές'],
     ];
+
+    var expansions = [
+        ['The', '', 'η', ['singular', 'nominative']],
+        ['From the', '', 'από την', ['singular', 'accusative']],
+        ['The', 's', 'οι', ['plural', 'nominative']],
+        ['From the', 's', 'από τις', ['plural', 'accusative']],
+    ];
+
+    return expanded_noun_util(
+        english, greek, tags, greek_suffixes, 'η', expansions);
+}
+
+function expanded_noun_util(
+        english, greek, tags, greek_suffixes, greek_prefix, expansions) {
+    var expanded = [];
 
     var ending_type = null;
     for (var i = 0; i < greek_suffixes.length; ++i) {
@@ -439,15 +431,8 @@ function expanded_feminine_noun(english, greek, tags) {
     }
     assert(ending_type != null);
 
-    greek = string_without_prefix(greek, 'η');
+    greek = string_without_prefix(greek, greek_prefix);
     greek = string_without_suffix(greek, greek_suffixes[ending_type][0]);
-
-    var expansions = [
-        ['The', '', 'η', ['singular', 'nominative']],
-        ['From the', '', 'από την', ['singular', 'accusative']],
-        ['The', 's', 'οι', ['plural', 'nominative']],
-        ['From the', 's', 'από τις', ['plural', 'accusative']],
-    ];
 
     for (var i = 0; i < expansions.length; ++i) {
         var e = expansions[i];
