@@ -389,6 +389,7 @@ function expanded_masculine_noun(english, greek, tags) {
     var expanded = [];
     //remove_string_from_list('masculine', tags);
 
+    // TODO: fix stresses to last vowel
     var greek_suffixes = [
       ['ης', 'η', 'ες', 'ες'],
       ['ής', 'ή', 'ές', 'ές'],
