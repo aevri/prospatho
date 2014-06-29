@@ -98,7 +98,6 @@ var MASCULINE_SINGULAR_NOUNS = [
     ["The garden", "ο κήπος"],
     ["The air / wind", "ο αέρας"],
     ["The man / husband", "ο άντρας"],
-    ["The peas", "ο αρακάς"],
     ["The rock", "ο βράχος"],
 ];
 
