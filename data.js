@@ -75,6 +75,7 @@ var PRESENT_VERBS = [
 
 var NUMBERS = [
     ["number"],
+    ["zero", "μηδέν"],
     ["one", "ένα"],
     ["two", "δύο"],
     ["three", "τρία"],
