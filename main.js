@@ -313,6 +313,8 @@ function expanded_translations(translations) {
             extend_array(expanded, expanded_gender(t));
         } else if (is_string_in_list("verb-expand", tag)) {
             extend_array(expanded, expanded_verb(t));
+        } else if (is_string_in_list("noun-expand", tag)) {
+            extend_array(expanded, expanded_noun(t));
         } else {
             expanded.push(t);
         }
@@ -360,6 +362,71 @@ function expanded_verb(t) {
             e[0] + english,
             greek + e[1],
             list_with_extended(tags, e[2])]);
+    }
+
+    return expanded;
+}
+
+function expanded_noun(t) {
+    var expanded = [];
+    var english = t[0].substr(0);
+    var greek = t[1].substr(0);
+    var tags = clone_list(t[2]);
+    assert(is_string_in_list('noun', tags));
+    remove_string_from_list('noun-expand', tags);
+    remove_string_from_list('singular', tags);
+    remove_string_from_list('nominative', tags);
+    //remove_string_from_list('masculine', tags);
+
+    var greek_suffixes = [
+      ['ης', 'η', 'ες', 'ες'],
+      ['ής', 'ή', 'ές', 'ές'],
+      ['ας', 'α', 'ες', 'ες'],
+      ['άς', 'ά', 'ές', 'ές'],
+      ['ος', 'ο', 'οι', 'ους'],
+      ['ός', 'ό', 'όι', 'όυς']
+    ];
+
+    var ending_type = null;
+    for (var i = 0; i < greek_suffixes.length; ++i) {
+        if (string_ends_with(greek, greek_suffixes[i][0])) {
+            assert(ending_type == null);
+            ending_type = i;
+        }
+    }
+    assert(ending_type != null);
+
+    // Assert that the English string begins with 'The', remove 'The'
+    if (!string_begins_with(english, 'The')) {
+        assert(false, 'unexpeced verb prefix encountered: ' + english);
+    }
+    english = english.substr(3);
+
+    // Assert that the Greek string begins with 'ο', remove 'ο'
+    if (!string_begins_with(greek, 'ο')) {
+        assert(false, 'unexpeced verb prefix encountered: ' + greek);
+    }
+    greek = greek.substr(1);
+
+    // Assert that the Greek string ends in sigma, remove sigma+1
+    if (!string_ends_with(greek, 'ς')) {
+        assert(false, 'unexpeced verb ending encountered: ' + greek);
+    }
+    greek = greek.slice(0, -2);
+
+    var expansions = [
+        ['The', '', 'ο', ['singular', 'nominative']],
+        ['From the', '', 'από τον', ['singular', 'accusative']],
+        ['The', 's', 'οι', ['plural', 'nominative']],
+        ['From the', 's', 'από τους', ['plural', 'accusative']],
+    ];
+
+    for (var i = 0; i < expansions.length; ++i) {
+        var e = expansions[i];
+        expanded.push([
+            e[0] + english + e[1],
+            e[2] + greek + greek_suffixes[ending_type][i],
+            list_with_extended(tags, e[3])]);
     }
 
     return expanded;

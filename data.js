@@ -91,49 +91,15 @@ var ORDINALS = [
 ];
 
 var MASCULINE_SINGULAR_NOUNS = [
-    ["noun", "masculine", "singular"],
-    ["the lighter", "ο αναπτήρας"],
-    ["the computer", "ο υπολογιστής"],
-    ["the envelope", "ο φάκελος"],
-    ["the garden", "ο κήπος"],
-    ["the air / wind", "ο αέρας"],
-    ["the man / husband", "ο άντρας"],
-    ["the peas", "ο αρακάς"],
-    ["the rock", "ο βράχος"],
-];
-
-var MASCULINE_PLURAL_NOUNS = [
-    ["noun", "masculine", "plural"],
-    ["the lighters", "οι αναπτήρες"],
-    ["the computers", "οι υπολογιστές"],
-    ["the envelopes", "οι φάκελοι"],
-    ["the gardens", "οι κήποι"],
-    ["the airs / winds", "οι αέρες"],
-    ["the men / husbands", "οι άντρες"],
-    ["the rocks", "οι βράχοι"],
-];
-
-var MASCULINE_SINGULAR_ACCUSATIVE_NOUNS = [
-    ["noun", "masculine", "singular", "accusitive"],
-    ["from the lighter", "από τον αναπτήρα"],
-    ["from the computer", "από τον υπολογιστή"],
-    ["from the envelope", "από τον φάκελο"],
-    ["from the garden", "από τον κήπο"],
-    ["from the air / wind", "από τον αέρα"],
-    ["from the man / husband", "από τον άντρα"],
-    ["from the peas", "από τον αρακά"],
-    ["from the rock", "από τον βράχο"],
-];
-
-var MASCULINE_PLURAL_ACCUSATIVE_NOUNS = [
-    ["noun", "masculine", "plural", "accusative"],
-    ["from the lighters", "από τους αναπτήρες"],
-    ["from the computers", "από τους υπολογιστές"],
-    ["from the envelopes", "από τους φάκελους"],
-    ["from the gardens", "από τους κήπους"],
-    ["from the airs / winds", "από τους αέρες"],
-    ["from the men / husbands", "από τους άντρες"],
-    ["from the rocks", "από τους βράχους"],
+    ["noun-expand", "noun", "masculine", "singular"],
+    ["The lighter", "ο αναπτήρας"],
+    ["The computer", "ο υπολογιστής"],
+    ["The envelope", "ο φάκελος"],
+    ["The garden", "ο κήπος"],
+    ["The air / wind", "ο αέρας"],
+    ["The man / husband", "ο άντρας"],
+    ["The peas", "ο αρακάς"],
+    ["The rock", "ο βράχος"],
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
@@ -193,8 +159,7 @@ var QUESTIONS = [
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
-    MASCULINE_PLURAL_NOUNS, MASCULINE_SINGULAR_ACCUSATIVE_NOUNS,
-    MASCULINE_PLURAL_ACCUSATIVE_NOUNS, QUESTIONS
+    QUESTIONS
 ];
 
 var TRANSLATIONS = [
