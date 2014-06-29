@@ -376,7 +376,7 @@ function expanded_noun(t) {
     } else if (is_string_in_list('neuter', tags)) {
         return expanded_neuter_noun(english, greek, tags);
     }
-    assert(false);
+    assert(false, "could not expand noun: " + english);
 }
 
 function expanded_masculine_noun(english, greek, tags) {
@@ -448,11 +448,11 @@ function expanded_noun_util(
     var ending_type = null;
     for (var i = 0; i < greek_suffixes.length; ++i) {
         if (string_ends_with(greek, greek_suffixes[i][0])) {
-            assert(ending_type == null);
+            assert(ending_type == null, 'ending type is not null');
             ending_type = i;
         }
     }
-    assert(ending_type != null);
+    assert(ending_type != null, 'ending type is null: ' + english);
 
     greek = string_without_prefix(greek, greek_prefix);
     greek = string_without_suffix(greek, greek_suffixes[ending_type][0]);
