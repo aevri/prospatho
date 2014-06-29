@@ -102,22 +102,26 @@ var MASCULINE_SINGULAR_NOUNS = [
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
+    ["noun-expand", "noun", "feminine", "singular"],
+    ["The chair", "η καρέκλα"],
+    ["The motorbike", "η μηχανή"],
+    ["The television", "η τηλεόραση"],
+    ["The newspaper", "η εφημερίδα"],
+    ["The market", "η αγορά"],
+    ["The receipt", "η απόδειξη"],
+    ["The diary / agenda", "η ατζέντα"],
+    ["The courtyard", "η αυλή"],
+    ["The vanilla", "η βανίλια"],
+    ["The gasoline", "η βενζίνη"],
+    ["The balcony / porch", "η βεράντα"],
+    ["The night / evening", "η βραδιά"],
+];
+
+var FEMININE_SINGULAR_UNEXPANDED_NOUNS = [
     ["noun", "feminine", "singular"],
-    ["the chair", "η καρέκλα"],
-    ["the motorbike", "η μηχανή"],
-    ["the television", "η τηλεόραση"],
-    ["the newspaper", "η εφημερίδα"],
     ["England", "η Αγγλία"],
-    ["the market", "η αγορά"],
     ["Athens", "η Αθήνα"],
     ["America", "η Αμερική"],
-    ["the receipt", "η απόδειξη"],
-    ["the diary / agenda", "η ατζέντα"],
-    ["the courtyard", "η αυλή"],
-    ["the vanilla", "η βανίλια"],
-    ["the gasoline", "η βενζίνη"],
-    ["the balcony / porch", "η βεράντα"],
-    ["the night / evening", "η βραδιά"],
     ["Britain", "η Βριτανία"],
 ];
 
@@ -158,7 +162,7 @@ var QUESTIONS = [
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
-    QUESTIONS
+    FEMININE_SINGULAR_UNEXPANDED_NOUNS, QUESTIONS
 ];
 
 var TRANSLATIONS = [

@@ -369,12 +369,16 @@ function expanded_noun(t) {
 
     english = string_without_prefix(english, 'The');
 
-    return expanded_masculine_noun(english, greek, tags);
+    if (is_string_in_list('masculine', tags)) {
+        return expanded_masculine_noun(english, greek, tags);
+    } else if (is_string_in_list('feminine', tags)) {
+        return expanded_feminine_noun(english, greek, tags);
+    }
+    assert(false);
 }
 
 function expanded_masculine_noun(english, greek, tags) {
     var expanded = [];
-    //remove_string_from_list('masculine', tags);
 
     // TODO: fix stresses to last vowel
     var greek_suffixes = [
@@ -403,6 +407,46 @@ function expanded_masculine_noun(english, greek, tags) {
         ['From the', '', 'από τον', ['singular', 'accusative']],
         ['The', 's', 'οι', ['plural', 'nominative']],
         ['From the', 's', 'από τους', ['plural', 'accusative']],
+    ];
+
+    for (var i = 0; i < expansions.length; ++i) {
+        var e = expansions[i];
+        expanded.push([
+            e[0] + english + e[1],
+            e[2] + greek + greek_suffixes[ending_type][i],
+            list_with_extended(tags, e[3])]);
+    }
+
+    return expanded;
+}
+
+function expanded_feminine_noun(english, greek, tags) {
+    var expanded = [];
+
+    var greek_suffixes = [
+      ['η', 'η', 'ες', 'ες'],
+      ['ή', 'ή', 'ές', 'ές'],
+      ['α', 'α', 'ες', 'ες'],
+      ['ά', 'ά', 'ές', 'ές'],
+    ];
+
+    var ending_type = null;
+    for (var i = 0; i < greek_suffixes.length; ++i) {
+        if (string_ends_with(greek, greek_suffixes[i][0])) {
+            assert(ending_type == null);
+            ending_type = i;
+        }
+    }
+    assert(ending_type != null);
+
+    greek = string_without_prefix(greek, 'η');
+    greek = string_without_suffix(greek, greek_suffixes[ending_type][0]);
+
+    var expansions = [
+        ['The', '', 'η', ['singular', 'nominative']],
+        ['From the', '', 'από την', ['singular', 'accusative']],
+        ['The', 's', 'οι', ['plural', 'nominative']],
+        ['From the', 's', 'από τις', ['plural', 'accusative']],
     ];
 
     for (var i = 0; i < expansions.length; ++i) {
