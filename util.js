@@ -126,7 +126,14 @@ function string_ends_with(s, suffix) {
     return s.indexOf(suffix, s.length - suffix.length) != -1;
 }
 
+function string_without_prefix(s, prefix) {
+    assert(string_begins_with(s, prefix));
+    return s.slice(prefix.length);
+}
+
 function string_without_suffix(s, suffix) {
+    assert(string_ends_with(s, suffix));
+    return s.slice(0, -suffix.length);
 }
 
 function assert(condition, message) {

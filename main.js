@@ -376,11 +376,7 @@ function expanded_noun(t) {
     remove_string_from_list('singular', tags);
     remove_string_from_list('nominative', tags);
 
-    // Assert that the English string begins with 'The', remove 'The'
-    if (!string_begins_with(english, 'The')) {
-        assert(false, 'unexpeced verb prefix encountered: ' + english);
-    }
-    english = english.substr(3);
+    english = string_without_prefix(english, 'The');
 
     return expanded_masculine_noun(english, greek, tags);
 }
@@ -408,11 +404,7 @@ function expanded_masculine_noun(english, greek, tags) {
     }
     assert(ending_type != null);
 
-    // Assert that the Greek string begins with 'ο', remove 'ο'
-    if (!string_begins_with(greek, 'ο')) {
-        assert(false, 'unexpeced verb prefix encountered: ' + greek);
-    }
-    greek = greek.substr(1);
+    greek = string_without_prefix(greek, 'ο');
 
     // Assert that the Greek string ends in sigma, remove sigma+1
     if (!string_ends_with(greek, 'ς')) {
