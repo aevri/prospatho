@@ -114,6 +114,7 @@ var MASCULINE_SINGULAR_NOUNS = [
     ["The air / wind", "ο αέρας"],
     ["The man / husband", "ο άντρας"],
     ["The rock", "ο βράχος"],
+    ["The bakery", "ο φούρνος"],
 ];
 
 var FEMININE_SINGULAR_NOUNS = [
@@ -134,6 +135,8 @@ var FEMININE_SINGULAR_NOUNS = [
     ["The strawberry", "η φράουλα"],
     ["The tomato", "η ντομάτα"],
     ["The potato", "η πατάτα"],
+    ["The tavern", "η ταβέρνα"],
+    ["The bank", "η τράπεζα"],
 ];
 
 var FEMININE_SINGULAR_UNEXPANDED_NOUNS = [
@@ -173,6 +176,9 @@ var NEUTER_SINGULAR_NOUNS = [
     ["The grape", "το σταφύλι"],
     ["The melon", "το καρπύζι"],
     ["The carrot", "το καρότο"],
+    ["The pharmacy", "το φαρμακείο"],
+    ["The sweet shop", "το ζαχαροπλαστείο"],
+    ["The laundromat", "το καθαραριστήριο"],
 ];
 
 var NEUTER_SINGULAR_UNEXPANDED_NOUNS = [
