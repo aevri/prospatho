@@ -85,7 +85,7 @@ var ORDINALS = [
     ["eighth", "όγδοος"],
     ["ninth", "ένατος"],
     ["tenth", "δέκατος"],
-    ["eleventh", "ενtέκατος"],
+    ["eleventh", "εντέκατος"],
     ["twelfth", "δωδέκατος"],
     ["twentieth", "εικοστός"],
 ];
