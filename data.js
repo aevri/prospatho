@@ -130,6 +130,10 @@ var FEMININE_SINGULAR_NOUNS = [
     ["The gasoline", "η βενζίνη"],
     ["The balcony / porch", "η βεράντα"],
     ["The night / evening", "η βραδιά"],
+    ["The apple", "η μήλα"],
+    ["The strawberry", "η φράουλα"],
+    ["The tomato", "η ντομάτα"],
+    ["The potato", "η πατάτα"],
 ];
 
 var FEMININE_SINGULAR_UNEXPANDED_NOUNS = [
@@ -163,6 +167,12 @@ var NEUTER_SINGULAR_NOUNS = [
     ["The video", "το βίντεο"],
     ["The mountain", "το βουνό"],
     ["The butter", "το βούτυρο"],
+    ["The orange", "το πορτοκάλι"],
+    ["The lemon", "το λεμόνι"],
+    ["The cherry", "το κεράσι"],
+    ["The grape", "το σταφύλι"],
+    ["The melon", "το καρπύζι"],
+    ["The carrot", "το καρότο"],
 ];
 
 var NEUTER_SINGULAR_UNEXPANDED_NOUNS = [
