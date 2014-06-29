@@ -126,29 +126,33 @@ var FEMININE_SINGULAR_UNEXPANDED_NOUNS = [
 ];
 
 var NEUTER_SINGULAR_NOUNS = [
-    ["noun", "neuter", "singular"],
-    ["the statue", "το άγαλμα"],
-    ["the wallet", "το πορτοφόλι"],
-    ["the car", "το αυτοκίνητο"],
-    ["the souvlaki", "το σουβλάκι"],
-    ["the coin", "το κέρμα"],
-    ["the house", "το σπίτι"],
-    ["the book", "το βιβλίο"],
-    ["the clock", "το ρολόι"],
-    ["the egg", "το αβγό"],
-    ["the cucumber", "το αγγούρι"],
-    ["the airport", "το αεροδρόμιο"],
-    ["the airplane", "το αεροπλάνο"],
-    ["the salt", "το αλάτι"],
-    ["the alphabet", "το αλφάβητο"],
-    ["the refreshment", "το αναψυκτικό"],
-    ["the pear", "το αχλάδι"],
-    ["the vase", "το βάζο"],
-    ["the apricot", "το βερίκοκο"],
-    ["the video", "το βίντεο"],
-    ["the mountain", "το βουνό"],
-    ["the butter", "το βούτυρο"],
-    ["the milk", "το γάλα"],
+    ["noun-expand", "noun", "neuter", "singular", "nominative"],
+    ["The statue", "το άγαλμα"],
+    ["The wallet", "το πορτοφόλι"],
+    ["The car", "το αυτοκίνητο"],
+    ["The souvlaki", "το σουβλάκι"],
+    ["The coin", "το κέρμα"],
+    ["The house", "το σπίτι"],
+    ["The book", "το βιβλίο"],
+    ["The clock", "το ρολόι"],
+    ["The egg", "το αβγό"],
+    ["The cucumber", "το αγγούρι"],
+    ["The airport", "το αεροδρόμιο"],
+    ["The airplane", "το αεροπλάνο"],
+    ["The salt", "το αλάτι"],
+    ["The alphabet", "το αλφάβητο"],
+    ["The refreshment", "το αναψυκτικό"],
+    ["The pear", "το αχλάδι"],
+    ["The vase", "το βάζο"],
+    ["The apricot", "το βερίκοκο"],
+    ["The video", "το βίντεο"],
+    ["The mountain", "το βουνό"],
+    ["The butter", "το βούτυρο"],
+];
+
+var NEUTER_SINGULAR_UNEXPANDED_NOUNS = [
+    ["noun", "neuter", "singular", "nominative"],
+    ["The milk", "το γάλα"],
 ];
 
 var QUESTIONS = [
@@ -162,7 +166,8 @@ var QUESTIONS = [
 var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
-    FEMININE_SINGULAR_UNEXPANDED_NOUNS, QUESTIONS
+    FEMININE_SINGULAR_UNEXPANDED_NOUNS, NEUTER_SINGULAR_UNEXPANDED_NOUNS,
+    QUESTIONS
 ];
 
 var TRANSLATIONS = [

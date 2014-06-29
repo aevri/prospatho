@@ -373,6 +373,8 @@ function expanded_noun(t) {
         return expanded_masculine_noun(english, greek, tags);
     } else if (is_string_in_list('feminine', tags)) {
         return expanded_feminine_noun(english, greek, tags);
+    } else if (is_string_in_list('neuter', tags)) {
+        return expanded_neuter_noun(english, greek, tags);
     }
     assert(false);
 }
@@ -416,6 +418,27 @@ function expanded_feminine_noun(english, greek, tags) {
 
     return expanded_noun_util(
         english, greek, tags, greek_suffixes, 'η', expansions);
+}
+
+function expanded_neuter_noun(english, greek, tags) {
+    var greek_suffixes = [
+      ['ι', 'ι', 'ια', 'ια'],
+      ['ί', 'ί', 'ιά', 'ιά'],
+      ['ο', 'ο', 'α', 'α'],
+      ['ό', 'ό', 'ά', 'ά'],
+      ['μα', 'μα', 'ματα', 'ματα'],
+      // TODO: figure out what a stressed 'mata' ending should look like
+    ];
+
+    var expansions = [
+        ['The', '', 'το', ['singular', 'nominative']],
+        ['From the', '', 'από το', ['singular', 'accusative']],
+        ['The', 's', 'τα', ['plural', 'nominative']],
+        ['From the', 's', 'από τα', ['plural', 'accusative']],
+    ];
+
+    return expanded_noun_util(
+        english, greek, tags, greek_suffixes, 'το', expansions);
 }
 
 function expanded_noun_util(
