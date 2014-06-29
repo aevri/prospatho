@@ -73,6 +73,20 @@ var PRESENT_VERBS = [
     ["I have", "έχω"],
 ];
 
+var NUMBERS = [
+    ["number"],
+    ["one", "ένα"],
+    ["two", "δύο"],
+    ["three", "τρία"],
+    ["four", "τέσσαρα"],
+    ["five", "πέντε"],
+    ["six", "έξι"],
+    ["seven", "εφτά"],
+    ["eight", "οχτώ"],
+    ["nine", "εννιά"],
+    ["ten", "δέκα"]
+];
+
 var ORDINALS = [
     ["gender-expand", "masculine", "ordinal"],
     ["first", "πρώτος"],
@@ -167,7 +181,7 @@ var LISTS_TO_EXPAND = [
     TYPE_A_VERBS, FUTURE_VERBS, PRESENT_VERBS, ORDINALS,
     MASCULINE_SINGULAR_NOUNS, FEMININE_SINGULAR_NOUNS, NEUTER_SINGULAR_NOUNS,
     FEMININE_SINGULAR_UNEXPANDED_NOUNS, NEUTER_SINGULAR_UNEXPANDED_NOUNS,
-    QUESTIONS
+    NUMBERS, QUESTIONS
 ];
 
 var TRANSLATIONS = [
