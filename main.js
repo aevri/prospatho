@@ -335,17 +335,8 @@ function expanded_verb(t) {
     var english_prefixes = ['I', 'You', 'He/She/It', 'We', 'You(pl)', 'They'];
     var greek_suffixes = ['ω', 'εις', 'ει', 'ουμε', 'ετε', 'ουν(ε)'];
 
-    // Assert that the English string begins with 'I', remove 'I'
-    if (!string_begins_with(english, english_prefixes[0])) {
-        assert(false, 'unexpeced verb prefix encountered: ' + english);
-    }
-    english = english.substr(1);
-
-    // Assert that the Greek string ends in omega, remove omega
-    if (!string_ends_with(greek, greek_suffixes[0])) {
-        assert(false, 'unexpeced verb ending encountered: ' + greek);
-    }
-    greek = greek.slice(0, -1);
+    english = string_without_prefix(english, english_prefixes[0]);
+    greek = string_without_suffix(greek, greek_suffixes[0]);
 
     var expansions = [
         [english_prefixes[0], greek_suffixes[0], ['singular', 'first-person']],
@@ -405,12 +396,7 @@ function expanded_masculine_noun(english, greek, tags) {
     assert(ending_type != null);
 
     greek = string_without_prefix(greek, 'ο');
-
-    // Assert that the Greek string ends in sigma, remove sigma+1
-    if (!string_ends_with(greek, 'ς')) {
-        assert(false, 'unexpeced verb ending encountered: ' + greek);
-    }
-    greek = greek.slice(0, -2);
+    greek = string_without_suffix(greek, greek_suffixes[ending_type][0]);
 
     var expansions = [
         ['The', '', 'ο', ['singular', 'nominative']],
