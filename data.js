@@ -12,7 +12,7 @@ var TYPE_A_VERBS = [
 var FUTURE_VERBS = [
     ["verb", "future-tense", "first-person", "singular"],
     ["I will bring", "θα φέρω"],
-    ["I will go", "θα φύγω"],
+    ["I will leave", "θα φύγω"],
     ["I will send", "θα στείλω"],
     ["I will wash", "θα πλύνω"],
     ["I will fall", "θα πέσω"],
@@ -42,7 +42,7 @@ var FUTURE_VERBS = [
 var PRESENT_VERBS = [
     ["verb", "present-tense", "first-person", "singular"],
     ["I bring", "φέρνω"],
-    ["I go", "φεύγω"],
+    ["I leave", "φεύγω"],
     ["I send", "στέλνω"],
     ["I wash", "πλένω"],
     ["I fall", "πέφτω"],
@@ -85,7 +85,7 @@ var ORDINALS = [
     ["eighth", "όγδοος"],
     ["ninth", "ένατος"],
     ["tenth", "δέκατος"],
-    ["eleventh", "ενδέκατος"],
+    ["eleventh", "ενtέκατος"],
     ["twelfth", "δωδέκατος"],
     ["twentieth", "εικοστός"],
 ];
