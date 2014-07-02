@@ -174,7 +174,7 @@ var NEUTER_SINGULAR_NOUNS = [
     ["The lemon", "το λεμόνι"],
     ["The cherry", "το κεράσι"],
     ["The grape", "το σταφύλι"],
-    ["The melon", "το καρπύζι"],
+    ["The melon", "το καρπούζι"],
     ["The carrot", "το καρότο"],
     ["The pharmacy", "το φαρμακείο"],
     ["The sweet shop", "το ζαχαροπλαστείο"],
