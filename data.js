@@ -167,7 +167,6 @@ var NEUTER_SINGULAR_NOUNS = [
     ["The pear", "το αχλάδι"],
     ["The vase", "το βάζο"],
     ["The apricot", "το βερίκοκο"],
-    ["The video", "το βίντεο"],
     ["The mountain", "το βουνό"],
     ["The butter", "το βούτυρο"],
     ["The orange", "το πορτοκάλι"],
@@ -184,6 +183,7 @@ var NEUTER_SINGULAR_NOUNS = [
 var NEUTER_SINGULAR_UNEXPANDED_NOUNS = [
     ["noun", "neuter", "singular", "nominative"],
     ["The milk", "το γάλα"],
+    ["The video", "το βίντεο"],
 ];
 
 var QUESTIONS = [
